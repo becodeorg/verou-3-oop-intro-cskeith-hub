@@ -42,7 +42,7 @@ $cola->getInfo();
 
 // EXERCISE 2
 // TODO: Make class beer that extends from Beverage.
-class beer
+class beer extends beverage
 {
     // TODO: Create the properties name (string) and alcoholPercentage (float).
     public string $name;
@@ -50,25 +50,28 @@ class beer
 
     // TODO: Foresee a construct that's allows us to use all the properties from beverage and that sets the values for name and alcoholpercentage.
     // Remember for now we will use properties and methods that can be accessed from everywhere.
-    public function __construct(string $name, float $alcoholPercentage)
+    public function __construct(string $name, float $alcoholPercentage, string $color, float $price, string $temperature="cold")
     {  
+        parent::__construct($color, $price, $temperature="cold");
         $this->name = $name;
         $this->alcoholPercentage = $alcoholPercentage;
     }
     // TODO: Make a getAlcoholPercentage function which returns the alocoholPercentage.
-    // TODO: Also the name equal to Duvel and the alcohol percentage to 8,5%
+    
     public function getAlcoholPercentage()
     {
-        echo "This is {$this->name} and contains {$this->alcoholPercentage} % Alcohols "."<br>";
+        echo "This is {$this->name} and contains {$this->alcoholPercentage} % Alcohols and will cost {$this->price} "."<br>";
     }
 }
+
+// TODO: Also the name equal to Duvel and the alcohol percentage to 8,5%
+$duvel = new beer("Duvel", 8.5, "Brown", 5);
+
 // TODO: Print the getAlcoholPercentage 2 times on the screen in two different ways, print the color on the screen and the getInfo.
-$duval = new beer("Duval", 8.5);
+$duvel->getAlcoholPercentage();
+$duvel->getInfo();
 
-$duval->getAlcoholPercentage();
-
-
-
+var_dump($duvel);
 
 
 
