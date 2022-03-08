@@ -14,9 +14,9 @@ class beverage
     public string $color;
     public float  $price;
     //TODO: Have a default value "cold" in the construct for temperature.
-    public string $temperature = "cold";
+    public string $temperature;
 
-    public function __construct($color, $price, $temperature)
+    public function __construct( $color,  $price,  $temperature="cold")
     {
         $this->color = $color;
         $this->price = $price;
@@ -27,11 +27,13 @@ class beverage
     //TODO: Make a getInfo function which returns "This beverage is <temperature> and <color>."
     public function getInfo()
     {
-        echo "This beverage is $this->temperature and $this->color.";
+        echo "This beverage is {$this->temperature} and {$this->color}.";
     }
 }
 //TODO: Instantiate an object which represents cola. Make sure that the color is set to black, the price equals 2 euro and the temperature to cold //automatically
-$beverage1 = new beverage("black", 2, "");
+$cola = new beverage("black", 2);
+
 // print the getInfo on the screen.
+$cola->getInfo();
 //TODO: Print the temperature on the screen.
 //USE TYPEHINTING EVERYWHERE!
